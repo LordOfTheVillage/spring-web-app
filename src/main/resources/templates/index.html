@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css"/>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{css/styles.css}">
+    <title>Title</title>
+</head>
+<body>
+<div class="page-wrapper">
+    <nav>
+        <a th:href="@{/profiles}">Show profiles list</a>
+    </nav>
+    <h1 class="page-title">
+        Spring with Thymeleaf
+    </h1>
+    <p class="page-text">
+        Don't have an account? Click here to <a th:href="@{/signup}">signup</a>
+    </p>
+    <p class="page-text">
+        Already have an account? Click here to <a th:href="@{/signin}">signin</a>
+    </p>
+</div>
+</body>
+</html>

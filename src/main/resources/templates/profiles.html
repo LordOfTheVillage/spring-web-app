@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" type="text/css" href="../static/css/styles.css"/>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" th:href="@{css/styles.css}">
+  <title>Title</title>
+</head>
+<body>
+<div class="page-wrapper">
+  <h2>
+    <a th:href="@{/}">To main</a>
+  </h2>
+  <h1 class="page-title">
+    Profile
+  </h1>
+  <table class="users-list">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Password</th>
+    </tr>
+    <tr class="user-card" th:each="user : ${users}">
+      <td th:text="${user.getId()}">
+      </td>
+      <td th:text="${user.getName()}">
+      </td>
+      <td th:text="${user.getEmail()}">
+      </td>
+      <td th:text="${user.getPassword()}"></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

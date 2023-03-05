@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter, sans-serif;
+}
+
+.page-wrapper {
+    padding: 16px 0;
+    margin: 0 16px;
+}
+
+.page-title {
+    font-size: 32px;
+}
+
+@media screen and (min-width: 640px) {
+    .page-wrapper {
+        margin: 0 48px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .page-wrapper {
+        margin: 0 72px;
+    }
+}
+
+.form-input {
+    padding: 4px 8px;
+    border-radius: 4px;
+    outline: none;
+    background: none;
+    border: 1px solid #cdcdcd;
+}
+
+.form-wrapper {
+    display: grid;
+    max-width: 460px;
+    gap: 0.5rem;
+}
+
+.page-text {
+    font-size: 24px;
+}
+
+.form-button {
+    padding: 4px 8px;
+    border-radius: 4px;
+    outline: none;
+    background: #292929;
+    border: 1px solid #cdcdcd;
+    color: #ffffff;
+}
+
+.users-list {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.users-list td, .users-list th {
+    border: 1px solid black;
+    padding: 4px 8px;
+}
+
+.profile-name {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    justify-content: space-between;
+}
