@@ -20,22 +20,22 @@ public class UserService {
     }
 
     public User getUserByEmail(String email) throws UserNotFoundException {
-        return userRepository.getUserByEmail(email)
+        return userRepository.findUserByEmail(email)
                 .orElseThrow(() -> new UserNotFoundException(email));
     }
 
     public Optional<User> getUserById(int id) {
-        return userRepository.getUserById(id);
+        return userRepository.findUserById(id);
     }
 
     public ArrayList<User> getUsers() {
-        return new ArrayList<User>(userRepository.getUsers());
+        return new ArrayList<User>(userRepository.findAllUsers());
     }
 
     public Optional<User> logIn(String email, String password) {
-        Optional<User> user;
+        Optional<User> user = null;
         try {
-            user = Optional.ofNullable(this.getUserByEmail(email));
+            user = this.userRepository.authenticate(email, password);
         } catch (UserNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -43,18 +43,11 @@ public class UserService {
     }
 
     public User registerUser(User user) throws UserAlreadyExistsException {
-        Optional<User> candidate = null;
-        try {
-            candidate = Optional.ofNullable(getUserByEmail(user.getEmail()));
-        } catch (UserNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        if (candidate.isPresent()) {
+        Optional<User> candidate = userRepository.findUserByEmail(user.getEmail());
+        if (!candidate.isEmpty()) {
             throw new UserAlreadyExistsException();
         }
-//        UserJPARepository repo = null;
-//        repo.save(user);
-
+        user = userRepository.saveUser(user);
         return user;
     }
 }

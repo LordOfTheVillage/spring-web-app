@@ -19,8 +19,10 @@
   <form class="form-wrapper" method="POST" th:object="${user}" th:action="@{/signup}">
     <label for="email">Email</label>
     <input type="email" class="form-input" id="email" placeholder="email@example.com" th:field="*{email}">
+    <label for="name">Name</label>
+    <input type="text" class="form-input" id="name" placeholder="Borya" th:field="*{name}">
     <label for="password">Password</label>
-    <input type="password" class="form-input" id="password" placeholder="Eg" th:field="*{password}">
+    <input type="password" class="form-input" id="password" placeholder="12345" th:field="*{password}">
     <button type="submit" class="form-button">Register</button>
   </form>
 </div>

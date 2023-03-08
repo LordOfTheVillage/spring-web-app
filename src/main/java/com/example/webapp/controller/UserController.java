@@ -37,12 +37,13 @@ public class UserController {
 
     @PostMapping("/signup")
     public String postUserEntity(@ModelAttribute("user") User user, Model model) {
+        Optional<User> candidate = null;
         try {
-            userService.registerUser(user);
+            candidate = Optional.ofNullable(userService.registerUser(user));
         } catch (UserAlreadyExistsException e) {
             throw new RuntimeException(e);
         }
-        return "redirect:/profiles";
+        return "redirect:/profile/" + candidate.get().getId();
     }
 
     @GetMapping("/signin")
@@ -64,6 +65,7 @@ public class UserController {
 
     @GetMapping("/profiles")
     public String getProfiles(Model model) {
+
         model.addAttribute("users", userService.getUsers());
         return "profiles";
     }

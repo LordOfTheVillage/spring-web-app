@@ -1,18 +1,9 @@
 package com.example.webapp.entity;
 
-import jakarta.persistence.*;
-
-//@Entity
-//@Table(name = "users")
 public class User {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-//    @Column()
     private String email;
-//    @Column()
     private String name;
-//    @Column()
     private String password;
 
     public User(int id, String email, String password, String name) {
